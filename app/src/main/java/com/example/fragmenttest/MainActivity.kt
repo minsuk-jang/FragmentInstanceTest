@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.fragmenttest.databinding.ActivityMainBinding
+import com.example.fragmenttest.fragment.CustomFragmentFactoryImpl
 import com.example.fragmenttest.fragment.NewInstanceFragment
 import com.example.fragmenttest.fragment.NoEmptyPrimaryConstructorFragment
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportFragmentManager.fragmentFactory = CustomFragmentFactoryImpl(text = "Test")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
